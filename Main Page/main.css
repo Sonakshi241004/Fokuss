@@ -1,0 +1,162 @@
+html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  @font-face {
+  font-family: "Yeseva One";
+  src: url("Fonts/YesevaOne-Regular.ttf");
+  }
+  
+  @font-face {
+  font-family: "Josefin Sans";
+  src: url("Fonts/JosefinSans-VariableFont_wght.ttf");
+  }
+  
+  #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #19A7CE;
+      color: #fff;
+      width: 100%;
+      height: 40px;
+      margin-top: 0px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+  }
+  
+  #logo img {
+      margin-top: 6px;
+      height: 50px;
+  }
+  
+  #navbar-buttons {
+      display: flex;
+  }
+  
+  #navbar-buttons a {
+      margin-left: 24px;
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      margin-right: 30px;
+      font-family: "Yeseva One";
+  }
+  
+  
+  h1 {
+    font-family: "Yeseva One";
+    font-size: 60px;
+    font-weight: 400; 
+  }
+  
+  h2 {
+    font-family: "Josefin Sans";
+    font-size: 30px;
+    font-weight: 300;
+  }
+  
+  .row {
+    display: flex;
+    height: 100%;
+    width: 100%
+  }
+  
+  .column {
+    flex: 50%;
+  }
+  
+  .text {
+    padding-left: 50px;
+    padding-top: 90px;
+    background-color: #F6F1F1;
+  }
+  
+  .column img {
+    object-fit: cover;
+    height: 100%;
+    /* flex: 1; */
+  }
+  
+  p {
+    
+    font-family: "Josefin Sans";
+    font-size: 17px;
+    font-weight: 300;
+  }
+  
+  .darkmode {
+    padding-left: 50px;
+    padding-top: 90px;
+    background-color: #146C94;
+    color: white;
+  }
+  
+  
+  button {
+    margin-top: 200px;
+    margin-right: 13px;
+    background-color: #FFFFFF;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;
+    cursor: pointer;
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    outline: none;
+    padding: 7px 17px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+    user-select: none;
+    -webkit-user-select: none;
+    width: auto;
+  }
+  
+  button:focus-visible {
+    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+    transition: box-shadow .2s;
+  }
+  
+  button:active {
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+  }
+  
+  button:disabled {
+    border-color: #DDDDDD;
+    color: #DDDDDD;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  
+  
+  #navbar-buttons a {
+    /* Styles for navbar button */
+    /* Existing styles */
+  
+    /* Add hover effect */
+    transition: color 0.3s ease;
+  }
+  
+  #navbar-buttons a:hover {
+    color: #213555; /* Update with your desired hover color */
+  }
