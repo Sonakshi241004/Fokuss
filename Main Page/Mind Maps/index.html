@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mind Maps - Fokus</title>
+     <link rel="stylesheet" href="nav1.css">
+<link rel="stylesheet" href="style.css">
+
+<div id="navbar">
+          <div id="logo">
+              <img src="../Logo/Fokus_Yeseva_One-removebg-preview.png" alt="Logo">
+          </div>
+          <div id="navbar-buttons">
+              <a href="../../index.html">Home</a>
+              <a href="../To Do/index.html">To-Do</a>
+            <a href="../../index.html">Pomodoro</a>
+            <a href="../Flashcard/index.html">FlashCards</a>
+            <a href="index.html">Mind Maps</a>
+            <a href="../Spotify/index.html">Study Music</a>
+          </div>
+      </div>
+
+<br><br><br>
+  <center>
+  <h1>MIND MAPS!</h1>
+    <a href="Mind Map Maker/index.html">Want to make your own mind map? Click Here!</a>
+  </center>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .gallery img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            margin: 10px;
+            cursor: pointer;
+          
+  border: solid 2px;
+  border-color: #0599c2;
+
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+  <br>
+  <br>
+    <div class="gallery">
+        <img src="https://www.researchgate.net/publication/221909615/figure/fig3/AS:305348704522241@1449812212207/Mind-Map-for-central-derivations-from-Maxwells-equations-Stanek-2010.png" alt="Image 1" onclick="openModal(this)">
+        <img src="https://s3.amazonaws.com/xmindshare/preview/data-structures-3-jyuhu-1303170622128.jpg" alt="Image 2" onclick="openModal(this)">
+        <img src="https://i.pinimg.com/originals/ec/3d/42/ec3d42905833be34bdaab5a28cc3832c.png" alt="Image 3" onclick="openModal(this)">
+      <img src="https://i.pinimg.com/originals/ef/41/54/ef415496170c52ae967586d6bfb6b42b.png" alt="Image 4" onclick="openModal(this)">
+      <img src="https://imgv2-2-f.scribdassets.com/img/document/159371019/original/48daedad4b/1682691626?v=1" alt="Image 5" onclick="openModal(this)">
+      <img src="https://matchwarepublicmaps.blob.core.windows.net/cc1ceb4b-5c52-4631-9e72-523a496a596f/preview.png" alt="Image 6" onclick="openModal(this)">
+      
+    </div>
+
+    <div id="myModal" class="modal">
+        <img id="modalImage" src="" alt="Modal Image">
+    </div>
+
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+
+        var modal = document.getElementById("myModal");
+        modal.onclick = function() {
+            modal.style.display = "none";
+        };
+    </script>
+</body>
+</html>

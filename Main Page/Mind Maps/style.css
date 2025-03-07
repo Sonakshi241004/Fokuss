@@ -1,0 +1,25 @@
+body {
+    background-color: mintcream;
+  }
+  @font-face {
+  font-family: "Yeseva One";
+  src: url("../Fonts/YesevaOne-Regular.ttf");
+  }
+  
+  @font-face {
+  font-family: "Josefin Sans";
+  src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+  }
+  
+  h1 {
+    margin-top: 50px;
+    font-family: "Yeseva One";
+  }
+  
+  a {
+    font-family: "Josefin Sans";
+    text-decoration: none;
+    color: #146C94;
+  }
+  
+  
