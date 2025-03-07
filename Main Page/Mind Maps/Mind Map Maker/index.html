@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="nav1.css">
+        <div id="navbar">
+          <div id="logo">
+              <!-- Add your logo here -->
+              <img src="../../Logo/Fokus_Yeseva_One-removebg-preview.png" alt="Logo">
+          </div>
+          <div id="navbar-buttons">
+              <a href="../../index.html">Home</a>
+              <a href="../../To Do/index.html">To-Do</a>
+            <a href="../../../index.html">Pomodoro</a>
+            <a href="../../Flashcard/index.html">FlashCards</a>
+            <a href="../index.html">Mind Maps</a>
+            <a href="../../Spotify/index.html">Study Music</a>
+          </div>
+      </div>
+  <br><br>
+    <title>Mind Map Generator</title>
+  <br><br>
+    <style>
+        /* CSS styles for the mind map */
+        #mind-map {
+            position: relative;
+            width: 1000px;
+            height: 700px;
+            background-color: #F6F1F1;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        
+        .node {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        
+        .node:focus {
+            outline: none;
+        }
+        
+        .connector {
+            position: absolute;
+            background-color: #2f4f4f ;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+  <center> 
+    <div id="mind-map">
+        <div class="node" style="top: 50%; left: 50%;" contenteditable="true"></div>
+    </div>
+        </center>
+    <script>
+        
+        // Function to create a new node
+        function createNode(parentNode, offsetX, offsetY) {
+            const newNode = document.createElement('div');
+            newNode.className = 'node';
+            newNode.style.top = offsetY + 'px';
+            newNode.style.left = offsetX + 'px';
+            newNode.setAttribute('contenteditable', 'true');
+            parentNode.appendChild(newNode);
+            
+            return newNode;
+        }
+        
+        // Function to create a new connector between two nodes
+        function createConnector(parentNode, startX, startY, endX, endY) {
+            const deltaX = endX - startX;
+            const deltaY = endY - startY;
+            const length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+            
+            const newConnector = document.createElement('div');
+            newConnector.className = 'connector';
+            newConnector.style.width = length + 'px';
+            newConnector.style.height = '2px';
+            newConnector.style.transform = `translate(${startX}px, ${startY}px) rotate(${angle}deg)`;
+            parentNode.appendChild(newConnector);
+            
+            return newConnector;
+        }
+        
+        // Event listener for creating a new node on click
+        document.getElementById('mind-map').addEventListener('click', function(event) {
+            const offsetX = event.pageX - this.offsetLeft;
+            const offsetY = event.pageY - this.offsetTop;
+            
+            const clickedNode = createNode(this, offsetX, offsetY);
+            clickedNode.focus();
+            
+            const parentNode = clickedNode.parentNode;
+            
+            // Event listener for creating a new connector on drag
+            clickedNode.addEventListener('mousedown', function(event) {
+                const startX = event.pageX - parentNode.offsetLeft;
+                const startY = event.pageY - parentNode.offsetTop;
+                
+                const connector = createConnector(parentNode, startX, startY, startX, startY);
+                
+                // Event listener for updating the connector on drag
+                document.addEventListener('mousemove', function(event) {
+                    const endX = event.pageX - parentNode.offsetLeft;
+                    const endY = event.pageY - parentNode.offsetTop;
+                    
+                    connector.style.width = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2) + 'px';
+                    connector.style.transform = `translate(${startX}px, ${startY}px) rotate(${Math.atan2(endY - startY, endX - startX) * 180 / Math.PI}deg)`;
+                });
+                
+                // Event listener for finalizing the connector on release
+                document.addEventListener('mouseup', function(event) {
+                    const endNode = event.target.closest('.node');
+                    
+                    if (endNode && endNode !== clickedNode) {
+                        const endX = event.pageX - parentNode.offsetLeft;
+                        const endY = event.pageY - parentNode.offsetTop;
+                        
+                        createConnector(parentNode, startX, startY, endX, endY);
+                    }
+                    
+                    connector.remove();
+                    document.removeEventListener('mousemove', this);
+                    document.removeEventListener('mouseup', this);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
