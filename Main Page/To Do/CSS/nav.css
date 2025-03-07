@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Yeseva One";
+    src: url("../Fonts/YesevaOne-Regular.ttf");
+    }
+    
+    @font-face {
+    font-family: "Josefin Sans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+    }
+    
+    #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #19A7CE;
+        color: #fff;
+        width: 100%;
+        height: 60px;
+        margin-top: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    
+    #logo img {
+        margin-top: 6px;
+        height: 50px;
+    }
+    
+    #navbar-buttons {
+        display: flex;
+    }
+    
+    #navbar-buttons a {
+        margin-left: 24px;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 30px;
+        font-family: "Yeseva One";
+    }
+    
+    #navbar-buttons a {
+      /* Styles for navbar button */
+      /* Existing styles */
+    
+      /* Add hover effect */
+      transition: color 0.3s ease;
+    }
+    
+    #navbar-buttons a:hover {
+      color: #213555; /* Update with your desired hover color */
+    }
+    
+    
